@@ -59,7 +59,8 @@ export default function(model) {
   const { globalAdmin } = isJsonString(token) ? JSON.parse(token) || {} : {};
 
   return [
-    model === 'naming' ? undefined : configurationMenu,
+    (model !== 'config' && model !== null && model !== 'all') ? undefined : configurationMenu,
+    (model !== 'naming' && model !== null && model !== 'all') ? undefined :
     {
       key: 'serviceManagementVirtual',
       children: [
